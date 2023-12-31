@@ -37,3 +37,8 @@ let quizData = [
         function submitScoreLogic() {
             submitScore();
         }
+
+        function displayQuestion() {
+            const currentQuestion = quizData[currentQuestionIndex];
+            document.getElementById("question-title").textContent = currentQuestion.question;
+            document.getElementById("choices").innerHTML = "";}
