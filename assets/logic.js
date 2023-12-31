@@ -33,3 +33,5 @@ let quizData = [
             displayQuestion();
             startTimer();
         }
+
+
