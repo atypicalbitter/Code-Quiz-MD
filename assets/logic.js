@@ -28,3 +28,8 @@ let quizData = [
         let currentQuestionIndex = 0;
         let timer;
         let timeLeft = 60; 
+
+        function startQuizLogic() {
+            displayQuestion();
+            startTimer();
+        }
