@@ -34,4 +34,6 @@ let quizData = [
             startTimer();
         }
 
-
+        function submitScoreLogic() {
+            submitScore();
+        }
