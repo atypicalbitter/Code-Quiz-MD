@@ -8,3 +8,6 @@ function startQuiz() {
     document.getElementById("questions").classList.remove("hide");
     startQuizLogic();
 }
+function submitScore() {
+    submitScoreLogic();
+}

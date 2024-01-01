@@ -41,4 +41,11 @@ let quizData = [
         function displayQuestion() {
             const currentQuestion = quizData[currentQuestionIndex];
             document.getElementById("question-title").textContent = currentQuestion.question;
-            document.getElementById("choices").innerHTML = "";}
+            document.getElementById("choices").innerHTML = "";
+            
+            currentQuestion.choices.forEach((choice, index) => {
+                const choiceBtn = document.createElement("button");
+                choiceBtn.textContent = choice;
+                choiceBtn.addEventListener("click", () => checkAnswer(choice));
+                document.getElementById("choices").appendChild(choiceBtn);});
+        }
