@@ -69,3 +69,19 @@ let quizData = [
                 displayQuestion();
                 }, 1000);}
 }
+
+function startTimer() {
+    timer = setInterval(function () {
+    timeLeft--;
+    document.getElementById("time").textContent = timeLeft;
+    if (timeLeft <= 0) {
+        endQuiz();
+    }
+    }, 1000);
+}
+
+function endQuiz() {
+    clearInterval(timer);
+    document.getElementById("final-score").textContent = timeLeft;
+    document.getElementById("end-screen").classList.remove("hide");
+}
