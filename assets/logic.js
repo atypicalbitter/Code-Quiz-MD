@@ -85,3 +85,15 @@ function endQuiz() {
     document.getElementById("final-score").textContent = timeLeft;
     document.getElementById("end-screen").classList.remove("hide");
 }
+
+function submitScoreLogic() {
+    const initials = document.getElementById("initials").value;
+    if (!initials) {
+        alert("Please enter your initials before submitting.");
+        return;
+      }
+      const scores = JSON.parse(localStorage.getItem("scores")) || [];
+      scores.push({ initials, score: timeLeft });
+      localStorage.setItem("scores", JSON.stringify(scores));
+      window.location.href = "highscores.html";
+    }
