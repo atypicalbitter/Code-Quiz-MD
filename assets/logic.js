@@ -49,3 +49,23 @@ let quizData = [
                 choiceBtn.addEventListener("click", () => checkAnswer(choice));
                 document.getElementById("choices").appendChild(choiceBtn);});
         }
+
+        function checkAnswer(selectedAnswer) {
+            const currentQuestion = quizData[currentQuestionIndex];
+            const isCorrect = selectedAnswer === currentQuestion.correctAnswer;
+        
+            if (isCorrect) {
+            alert("Correct!");
+            currentQuestionIndex++;
+            } else {
+            alert("Incorrect!");
+            timeLeft -= 10;
+            if (timeLeft < 0) timeLeft = 0;
+            }
+            if (currentQuestionIndex === quizData.length || timeLeft <= 0) {
+                endQuiz();
+            } else {
+                setTimeout(() => {
+                displayQuestion();
+                }, 1000);}
+}
