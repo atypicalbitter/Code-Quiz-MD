@@ -11,3 +11,21 @@ function startQuiz() {
 function submitScore() {
     submitScoreLogic();
 }
+
+function loadHighscores() {
+    const highscoresList = document.getElementById("highscores");
+    highscoresList.innerHTML = "";
+  
+    window.onload = function () {
+      loadHighscores();
+    };
+
+    const scores = JSON.parse(localStorage.getItem("scores")) || [];
+
+    scores.sort((a, b) => b.score - a.score);
+    scores.forEach((score, index) => {
+        const listItem = document.createElement("li");
+        listItem.textContent = `${index + 1}. ${score.initials} - ${score.score}`;
+        highscoresList.appendChild(listItem);
+      });
+    }
