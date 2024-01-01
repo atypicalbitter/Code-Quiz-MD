@@ -40,3 +40,8 @@ function loadHighscores() {
             highscoresList.appendChild(listItem);
           });
         }
+
+        window.onload = function () {
+            loadHighscores();
+          };
+          
