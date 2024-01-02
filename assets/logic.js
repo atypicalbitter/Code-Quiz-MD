@@ -111,7 +111,3 @@ let quizData = [
     localStorage.setItem("scores", JSON.stringify(scores));
     window.location.href = "highscores.html";
   }
-  
-  
-  
-  
