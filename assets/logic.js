@@ -32,18 +32,13 @@ let quizData = [
   let timer;
   let timeLeft = 60;
   
-  
   function startQuizLogic() {
     displayQuestion();
     startTimer();
   }
-  
-  
   function submitScoreLogic() {
     submitScore();
   }
-  
-  
   function displayQuestion() {
     const currentQuestion = quizData[currentQuestionIndex];
   
@@ -61,8 +56,6 @@ let quizData = [
       document.getElementById("choices").appendChild(choiceBtn);
     });
   }
-  
-  
   function checkAnswer(selectedAnswer) {
     const currentQuestion = quizData[currentQuestionIndex];
     const isCorrect = selectedAnswer === currentQuestion.correctAnswer;
@@ -86,14 +79,7 @@ let quizData = [
     }, 1000);
   }
   }
-  
-  
-  
-  
-  
-  
   function endQuiz() {
-  
     clearInterval(timer);
   
   
@@ -102,8 +88,6 @@ let quizData = [
   
     document.getElementById("end-screen").classList.remove("hide");
   }
-  
-  
   function startTimer() {
     timer = setInterval(function () {
       timeLeft--;
@@ -115,19 +99,13 @@ let quizData = [
       }
     }, 1000);
   }
-  
-  
   function submitScoreLogic() {
   
     const initials = document.getElementById("initials").value;
-  
-  
     if (!initials) {
       alert("Please enter your initials before submitting.");
       return;
     }
-  
-  
     const scores = JSON.parse(localStorage.getItem("scores")) || [];
     scores.push({ initials, score: timeLeft });
     localStorage.setItem("scores", JSON.stringify(scores));

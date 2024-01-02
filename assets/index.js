@@ -14,52 +14,28 @@ function submitScore() {
     submitScoreLogic();
 }
 
-function loadHighscores() {
-    const highscoresList = document.getElementById("highscores");
-    highscoresList.innerHTML = "";
-    window.onload = function () {
-    loadHighscores();
-    };
-
-    const scores = JSON.parse(localStorage.getItem("scores")) || [];
-
-    scores.sort((a, b) => b.score - a.score);
-    scores.forEach((score, index) => {
-    const listItem = document.createElement("li");
-    listItem.textContent = `${index + 1}. ${score.initials} - ${score.score}`;
-    highscoresList.appendChild(listItem);
-    });
-}
-
 const clearBtn = document.getElementById("clear");
 clearBtn.addEventListener("click", clearHighscores);
 
 function clearHighscores() {
-localStorage.removeItem("scores");
-loadHighscores(); 
+  localStorage.removeItem("scores");
+  loadHighscores(); 
 }
-localStorage.clear()
 
 function loadHighscores() {
-    const highscoresList = document.getElementById("highscores");
-    highscoresList.innerHTML = "";
-    
+  const highscoresList = document.getElementById("highscores");
+  highscoresList.innerHTML = "";
 
+  const scores = JSON.parse(localStorage.getItem("scores")) || [];
 
-    const scores = JSON.parse(localStorage.getItem("scores")) || [];
-
-
-    scores.sort((a, b) => b.score - a.score);
-
-
-    scores.forEach((score, index) => {
+  scores.sort((a, b) => b.score - a.score);
+  scores.forEach((score, index) => {
     const listItem = document.createElement("li");
     listItem.textContent = `${index + 1}. ${score.initials} - ${score.score}`;
     highscoresList.appendChild(listItem);
-    });
+  });
 }
 
 window.onload = function () {
-    loadHighscores();
+  loadHighscores();
 };
-
